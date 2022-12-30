@@ -1,0 +1,25 @@
+const words = [
+  { word: "gleich", translation: "equal" },
+  { word: "gleichzeitig", translation: "at the same time" },
+  { word: "zur zeit", translation: "at the moment" },
+  { word: "wonhort", translation: "where" },
+  { word: "landwirt", translation: "farmer" },
+  { word: "werden", translation: "become" },
+  { word: "wird", translation: "will" },
+  { word: "berufstätig", translation: "employed" },
+  { word: "leicht", translation: "easy" },
+  { word: "schwer", translation: "hard" },
+  { word: "spienen", translation: "be crazy" },
+  { word: "kaufen", translation: "buy" },
+  { word: "verkaufen", translation: "sell" },
+  { word: "gescheiden", translation: "divorced" },
+  { word: "verheiratet", translation: "married" },
+  { word: "wählen", translation: "choose" },
+  { word: "aus wählen", translation: "vote" },
+  { word: "schon", translation: "already" },
+  { word: "schon mal", translation: "once" },
+  { word: "warten", translation: "wait" },
+  { word: "sauer", translation: "sour" },
+];
+
+export default words;
