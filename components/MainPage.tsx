@@ -6,8 +6,6 @@ import Lottie from "lottie-react";
 import correctMark from "../assets/green-check.json";
 import wrongMark from "../assets/check-mark-x.json";
 
-// shuffle the words
-
 function MainPage() {
   const [progress, setProgress] = useState<number>(0);
   const [steps, setSteps] = useState<number>(0);
@@ -16,16 +14,16 @@ function MainPage() {
   const [data, setData] = useState<any>(words[0].word);
   const [heart, setHeart] = useState<number>(3);
   const [isOver, setIsOver] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const [score, setScore] = useState<number>(0);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (text === "") {
-      setError(true);
       toast.error("Please enter a word");
     } else if (text === words[steps].translation) {
       setIsCorrect(true);
+      setScore(score + 1);
     } else {
       setIsCorrect(false);
     }
@@ -58,6 +56,7 @@ function MainPage() {
     setData(words[0].word);
     setHeart(3);
     setIsOver(false);
+    setScore(0);
   };
 
   return (
@@ -70,7 +69,7 @@ function MainPage() {
         <div className="w-full">
           <div className="flex justify-between w-full">
             <h1 className="text-2xl font-bold text-[#3E3E3E]">{steps}/20</h1>
-
+            <h1 className="text-2xl font-bold text-[#3E3E3E]">{score}</h1>
             <div className="flex flex-row">
               {Array.from({ length: heart }, (_, i) => (
                 <IconHeart
@@ -186,8 +185,11 @@ function MainPage() {
                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
-                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                  Are you sure you want to delete this product?
+                <h3 className="mb-5 text-base font-normal text-gray-500 dark:text-gray-400">
+                  überprüfen Sie Ihren Unterricht 👎. Dein Ergebnis ist <br />
+                  <span className="text-[#F61C1C] font-bold text-3xl">
+                    {score}
+                  </span>
                 </h3>
                 <button
                   data-modal-toggle="popup-modal"
